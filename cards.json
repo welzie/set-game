@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "color": "purple",
+        "shape": "oval",
+        "fill": "empty",
+        "count": 1
+    },
+    {
+        "id": 2,
+        "color": "purple",
+        "shape": "oval",
+        "fill": "shaded",
+        "count": 1
+    },
+    {
+        "id": 3,
+        "color": "purple",
+        "shape": "oval",
+        "fill": "solid",
+        "count": 1 
+    },
+    {
+        "id": 4,
+        "color": "green",
+        "shape": "squiggle",
+        "fill": "solid",
+        "count": 1
+    },
+    {
+        "id": 5,
+        "color": "green",
+        "shape": "squiggle",
+        "fill": "solid",
+        "count": 2
+    },
+    {
+        "id": 6,
+        "color": "green",
+        "shape": "squiggle",
+        "fill": "solid",
+        "count": 3
+    }
+]
