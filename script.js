@@ -1,5 +1,13 @@
 window.addEventListener("load", () => {
+    const cards = createCards();
+    // TODO: shuffle?
+    console.log(cards);
+    const drawnCards = drawRandomCards(cards, 9); 
+    console.log(drawnCards);
 
+});
+
+function createCards() {
     const cards = [];
     const properties = {
         color: ['purple', 'green', 'red'],
@@ -18,6 +26,22 @@ window.addEventListener("load", () => {
             });
         });
     });
+    return cards;
+};
 
-    console.log(cards);
-});
+/*
+ * Warning this mutates the cards array
+ */
+function drawRandomCards(cards, numberToDraw) {
+    const randomCards = [];
+    for (let i=0; i < numberToDraw; i++) {
+        const randomIndex = getRandomInt(cards.length);
+        const drawnCardArray = cards.splice(randomIndex, 1);
+        randomCards.push(drawnCardArray[0]);
+    }
+    return randomCards;
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
