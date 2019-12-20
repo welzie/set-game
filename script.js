@@ -1,10 +1,14 @@
 window.addEventListener("load", () => {
     const cards = createCards();
-    // TODO: shuffle?
     console.log(cards);
-    const drawnCards = drawRandomCards(cards, 9); 
+    const drawnCards = drawRandomCards(cards, 12); 
     console.log(drawnCards);
-
+    // TODO: display cards
+    // TODO: add ability to select sets
+    // TODO: verify if selected cards are a set
+    // TODO: add button to give count of available sets for displayed cards
+    // TODO: replace cards when valid set is found
+    // TODO: add three cards when no sets are present
 });
 
 function createCards() {
@@ -35,7 +39,7 @@ function createCards() {
 function drawRandomCards(cards, numberToDraw) {
     const randomCards = [];
     for (let i=0; i < numberToDraw; i++) {
-        const randomIndex = getRandomInt(cards.length);
+        const randomIndex = getRandomInt(cards.length - 1);
         const drawnCardArray = cards.splice(randomIndex, 1);
         randomCards.push(drawnCardArray[0]);
     }
@@ -43,5 +47,6 @@ function drawRandomCards(cards, numberToDraw) {
 }
 
 function getRandomInt(max) {
+    //TODO: is this able to return 0?
     return Math.floor(Math.random() * Math.floor(max));
 }
