@@ -1,0 +1,20 @@
+{
+  "name": "set-game",
+  "version": "0.0.1",
+  "description": "playing around with js to create an implementation of the set game",
+  "main": "script.js",
+  "scripts": { "test": "jasmine" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/welzie/set-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/welzie/set-game/issues"
+  },
+  "homepage": "https://github.com/welzie/set-game#readme",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
