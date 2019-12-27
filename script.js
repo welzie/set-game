@@ -1,8 +1,9 @@
 window.addEventListener("load", () => {
     const cards = createCards();
     console.log(cards);
-    const drawnCards = drawRandomCards(cards, 12); 
-    console.log(drawnCards);
+    const availableCards = drawRandomCards(cards, 12); 
+    console.log(availableCards);
+    console.log(findSets(availableCards));
     // TODO: display cards
     // TODO: add ability to select sets
     // TODO: verify if selected cards are a set
@@ -49,4 +50,31 @@ function drawRandomCards(cards, numberToDraw) {
 function getRandomInt(max) {
     //TODO: is this able to return 0?
     return Math.floor(Math.random() * Math.floor(max));
+}
+
+function findSets(availableCards) {
+    const sets = [];
+    if (availableCards.length > 2) {
+        const c1 = availableCards[0];
+        const remainingAvailableCards = availableCards.slice(1);
+        const lowerSets = findSets(remainingAvailableCards);
+        sets.concat(lowerSets || []);
+        for (let x=1; x < remainingAvailableCards.length; x++) {
+            const c2 = remainingAvailableCards[x];
+            for (let y=x+1; y < remainingAvailableCards.length; y++) {
+                c3 = remainingAvailableCards[y];
+                const possibleSet = [c1, c2, c3];
+                if (isSet(possibleSet)) {
+                    sets.push(possibleSet);
+                }
+            }
+        }
+        return sets;
+    } else {
+        return false;
+    }
+}
+
+function isSet(c1, c2, c3) {
+    return true;
 }
