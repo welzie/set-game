@@ -16,21 +16,24 @@ describe("set logic", function() {
     assert.strictEqual(deck.length, 69);
   });
 
-  it("correct determines if cards differing by one property are set", function() {
+  it("can recognize valid sets", function() {
     const cards = validSets.differInCount;
     assert.strictEqual(isSet(cards[0], cards[1], cards[2]), true);
+    // TODO: loop over more valid sets and verify they are seen as valid by isSet
   });
 
-  it("two cards matching on a property are not set", function() {
+  it("can recognize invalid sets", function() {
     const cards = inValidSets.twoHaveSameColor;
     assert.strictEqual(isSet(cards[0], cards[1], cards[2]), false);
+    // TODO: loop over more invalid sets and verify they are seen as invalid by isSet
   });
 
+  // color: ['purple', 'green', 'red'],
+  // shape: ['oval', 'squiqgle', 'diamond'],
+  // fill: ['empty', 'shaded', 'solid'],
+  // count: [1, 2, 3]
+
   const validSets = {
-    // color: ['purple', 'green', 'red'],
-    // shape: ['oval', 'squiqgle', 'diamond'],
-    // fill: ['empty', 'shaded', 'solid'],
-    // count: [1, 2, 3]
     differInCount: [
       { id: 1, color: 'red', shape: 'oval', fill: 'solid',  count: 1},
       { id: 2, color: 'red', shape: 'oval', fill: 'solid',  count: 2},
