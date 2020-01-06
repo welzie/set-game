@@ -71,9 +71,27 @@ function isSet(card1, card2, card3) {
   return Object.values(results).indexOf('invalid') < 0;
 }
 
+function subsets(items, subsetSize) {
+  let sets = [];
+  if (items.length < subsetSize) {
+    return [];
+  }
+  const lowerSets = subsets(items.slice(1), 3);
+  sets = sets.concat(lowerSets);
+
+  for(let x = 1; x < items.length; x++) {
+    for(let y = x + 1; y < items.length; y++) {
+      sets.push( [items[0], items[x], items[y]] );
+    }
+  }
+  return sets;
+}
+
+
 module.exports = {
   createCards,
   drawRandomCards,
   findSets,
-  isSet
+  isSet,
+  subsets
 };

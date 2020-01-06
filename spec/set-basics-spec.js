@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { createCards, drawRandomCards, findSets, isSet } = require('../set-game.js');
+const { createCards, drawRandomCards, findSets, isSet, subsets } = require('../set-game.js');
 
 describe("set logic", function() {
 
@@ -14,6 +14,26 @@ describe("set logic", function() {
     const availableCards = drawRandomCards(deck, 12);
     assert.strictEqual(availableCards.length, 12);
     assert.strictEqual(deck.length, 69);
+  });
+
+  //subsets(numbers, size, start, currentLength, used);
+  it("create all possible subsets for an array", function() {
+    // size of 5 = 10, 6 = 20, 12 = 220
+    let items = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
+    let sets = subsets(items, 3);
+    assert.strictEqual(sets.length, 220);
+    
+    items = ['a', 'b', 'c', 'd', 'e', 'f'];
+    sets = subsets(items, 3);
+    assert.strictEqual(sets.length, 20);
+    
+    items = ['a', 'b', 'c', 'd', 'e'];
+    sets = subsets(items, 3);
+    assert.strictEqual(sets.length, 10);
+    
+    items = ['a', 'b', 'c'];
+    sets = subsets(items, 3);
+    assert.strictEqual(sets.length, 1);
   });
 
   it("can recognize valid sets", function() {
