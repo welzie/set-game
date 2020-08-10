@@ -12,3 +12,7 @@ My attempt to understand the Set game better via HTML and JavaScript
 
 1. `$ npm install`
 1. `$ npm test`
+
+# Running in the Browser
+
+1. This is currently broken :(
