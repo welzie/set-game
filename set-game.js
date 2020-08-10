@@ -4,7 +4,7 @@ function createCards() {
     color: ['purple', 'green', 'red'],
     shape: ['oval', 'squiqgle', 'diamond'],
     fill: ['empty', 'shaded', 'solid'],
-    count: [1, 2, 3]
+    count: [1, 2, 3] // count of items displays
   };
 
   let number = 0;
@@ -43,6 +43,7 @@ function getRandomInt(max) {
  */
 function findSets(availableCards) {
   const sets = [];
+  // TODO: implement logic
   return sets;
 }
 
@@ -71,12 +72,15 @@ function isSet(card1, card2, card3) {
   return Object.values(results).indexOf('invalid') < 0;
 }
 
-function subsets(items, subsetSize) {
+// return all possible unique subsets of size subsetSize.
+// These subsets are not guaranteed to be actual sets, they are simply n
+// number of unique cards.
+function createSubsets(items, subsetSize) {
   let sets = [];
   if (items.length < subsetSize) {
     return [];
   }
-  const lowerSets = subsets(items.slice(1), 3);
+  const lowerSets = createSubsets(items.slice(1), 3);
   sets = sets.concat(lowerSets);
 
   for(let x = 1; x < items.length; x++) {
@@ -93,5 +97,5 @@ module.exports = {
   drawRandomCards,
   findSets,
   isSet,
-  subsets
+  createSubsets
 };
