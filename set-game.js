@@ -2,9 +2,9 @@ function createCards() {
   const cards = [];
   const properties = {
     color: ['purple', 'green', 'red'],
-    shape: ['oval', 'squiqgle', 'diamond'],
+    shape: ['oval', 'squiggle', 'diamond'],
     fill: ['empty', 'shaded', 'solid'],
-    count: [1, 2, 3] // count of items displays
+    count: [1, 2, 3] // count of items displayed on card
   };
 
   let number = 0;

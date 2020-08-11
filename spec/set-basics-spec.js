@@ -6,7 +6,22 @@ describe("set logic", function() {
   it("creates deck", function(){
     const cards = createCards();
     assert.strictEqual(cards.length, 81);
-    // TODO: validate that correct amount of each type were created
+
+    assert.strictEqual(cards.filter( c => c.color === 'purple').length, 27);
+    assert.strictEqual(cards.filter( c => c.color === 'red').length, 27);
+    assert.strictEqual(cards.filter( c => c.color === 'green').length, 27);
+
+    assert.strictEqual(cards.filter( c => c.shape === 'oval').length, 27);
+    assert.strictEqual(cards.filter( c => c.shape === 'squiggle').length, 27);
+    assert.strictEqual(cards.filter( c => c.shape === 'diamond').length, 27)
+    
+    assert.strictEqual(cards.filter( c => c.fill === 'empty').length, 27);
+    assert.strictEqual(cards.filter( c => c.fill === 'shaded').length, 27);
+    assert.strictEqual(cards.filter( c => c.fill === 'solid').length, 27);
+
+    assert.strictEqual(cards.filter( c => c.count === 1).length, 27);
+    assert.strictEqual(cards.filter( c => c.count === 2).length, 27);
+    assert.strictEqual(cards.filter( c => c.count === 3).length, 27);
   });
 
   it("draws random cards correctly and updates deck count", function() {
